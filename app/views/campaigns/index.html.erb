@@ -1,0 +1,33 @@
+<h2><i class="icon-envelope"></i> Campagins</h2>
+
+<hr class="separator">
+<%= link_to raw('<i class="icon-plus"></i> New'), new_campaign_path, class: 'btn btn-primary' %>
+<hr class="separator">
+
+<table class="table table-bordered">
+<tr>
+  <th>Name</th>
+  <th>From</th>
+  <th>Reply to</th>
+  <th>Subject</th>
+  <th>List</th>
+  <th style="width:70px">&nbsp;</th>
+</tr>
+<% @campaigns.each do |campaign| %>
+<tr>
+  <td><%= campaign.name %></td>
+  <td><%= campaign.from %></td>
+  <td><%= campaign.reply_to %></td>
+  <td><%= campaign.subject %></td>
+  <td><%= campaign.list.name if campaign.list %></td>
+  <td>
+    <%= link_to raw('<span class="icon icon-edit"></span>'), edit_campaign_path(campaign), class: '' %>
+    &nbsp;
+    <%= link_to raw('<span class="icon icon-time"></span>'), schedule_campaign_path(campaign), class: '' %>
+    &nbsp;
+    <%= link_to raw('<span class="icon icon-trash"></span>'), campaign_path(campaign), method: :delete, confirm: 'Are you sure?', class: '' %>
+  </td>
+</tr>
+<% end %>
+</table>
+<%= paginate @campaigns %>

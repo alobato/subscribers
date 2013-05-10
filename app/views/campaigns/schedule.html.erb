@@ -1,0 +1,23 @@
+<h2><i class="icon-time"></i> Schedule</h2>
+
+<hr class="separator">
+<%= link_to raw('<i class="icon-arrow-left"></i> Back'), campaigns_path, class: 'btn' %>
+<hr class="separator">
+
+<%= form_tag schedule_campaign_path(@campaign), class: 'form-horizontal' do %>
+<div class="row-fluid">
+  <div class="span10">
+
+    <div class="control-group">
+      <%= label_tag :at, 'Schedule', class: 'control-label' %>
+      <div class="controls datetime"><%= datetime_select('schedule', 'at', default: Time.now) %></div>
+    </div>
+
+  </div>
+</div>
+
+<div class="form-actions">
+  <%= submit_tag 'Ok', class: 'btn btn-primary' %>
+  <%= link_to 'Cancel', campaigns_path, class: 'btn btn-icon btn-default circle_remove' %>
+</div>
+<% end %>

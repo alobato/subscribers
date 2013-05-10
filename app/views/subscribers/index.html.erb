@@ -1,0 +1,28 @@
+<h2><i class="icon-user"></i> <%= @list.name %> - Subscribers</h2>
+
+<hr class="separator">
+
+<%= link_to raw('<i class="icon-arrow-left"></i> Back'), lists_path, class: 'btn' %>
+<%= link_to raw('<i class="icon-plus"></i> New'), new_list_subscriber_path(@list), class: 'btn btn-primary' %>
+
+<hr class="separator">
+
+<table class="table table-bordered">
+<tr>
+  <th>Name</th>
+  <th>Email</th>
+  <th style="width:40px">&nbsp;</th>
+</tr>
+<% @subscribers.each do |subscriber| %>
+<tr>
+  <td><%= subscriber.name %></td>
+  <td><%= subscriber.email %></td>
+  <td>
+    <%= link_to raw('<span class="icon icon-edit"></span>'), edit_list_subscriber_path(@list, subscriber) %>
+    &nbsp;
+    <%= link_to raw('<span class="icon icon-trash"></span>'), list_subscriber_path(@list, subscriber), method: :delete, confirm: 'Are you sure?', class: '' %>
+  </td>
+</tr>
+<% end %>
+</table>
+<%= paginate @subscribers %>

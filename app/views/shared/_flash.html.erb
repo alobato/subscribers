@@ -1,0 +1,6 @@
+<% object.each do |name, msg| %>
+  <% c = "alert #{name}" %>
+  <% c = "#{c} alert-error" if name.to_s == 'alert' %>
+  <% c = "#{c} alert-success" if name.to_s == 'notice' %>
+  <%= content_tag :div, msg, class: c %>
+<% end %>

@@ -1,0 +1,18 @@
+<%= render 'shared/error_messages', object: @list %>
+
+<%= form_for @list, html: { class: 'form-horizontal' } do |f| %>
+
+  <div class="row-fluid">
+    <div class="span10">
+      <div class="control-group">
+        <%= f.label :name, class: 'control-label' %>
+        <div class="controls"><%= f.text_field :name, class: 'span6' %></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="form-actions">
+    <%= f.submit 'Ok', class: 'btn btn-primary' %>
+    <%= link_to 'Cancel', lists_path, class: 'btn btn-icon btn-default circle_remove' %>
+  </div>
+<% end %>

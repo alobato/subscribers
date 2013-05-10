@@ -1,0 +1,29 @@
+<h2><i class="icon-list"></i> Lists</h2>
+
+<hr class="separator">
+
+<%= link_to raw('<i class="icon-plus"></i> New'), new_list_path, class: 'btn btn-primary' %>
+
+<hr class="separator">
+
+<table class="table table-bordered">
+<tr>
+  <th>Name</th>
+  <th style="width:100px">&nbsp;</th>
+  <th style="width:40px">&nbsp;</th>
+</tr>
+<% @lists.each do |list| %>
+<tr>
+  <td><%= list.name %></td>
+  <td>
+    <%= link_to raw('<i class="icon icon-user"></i> Subscribers'), list_subscribers_path(list), class: 'btn btn-small' %>
+  </td>
+  <td>
+    <%= link_to raw('<span class="icon icon-download-alt"></span>'), import_list_path(list) %>
+    &nbsp;
+    <%= link_to raw('<span class="icon icon-trash"></span>'), list_path(list), method: :delete, confirm: 'Are you sure?', class: '' %>
+  </td>
+</tr>
+<% end %>
+</table>
+<%= paginate @lists %>

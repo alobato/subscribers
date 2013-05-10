@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>Subscribers</title>
+  <%= stylesheet_link_tag 'application' %>
+  <%= csrf_meta_tags %>
+</head>
+<body>
+
+<!-- Navbar
+================================================== -->
+<div class="navbar navbar-inverse navbar-fixed-top">
+  <div class="navbar-inner">
+    <div class="container">
+      <button type="button" class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="brand" href="/">Subscribers</a>
+      <div class="nav-collapse collapse">
+        <ul class="nav">
+          <%= nav_link_to 'Lists', lists_path %>
+          <%= nav_link_to 'Campaigns', campaigns_path %>
+          <%= nav_link_to 'Logout', logout_path %>
+        </ul>
+      </div>
+    </div>
+  </div>
+</div>
+
+ <div class="container">
+
+  <div class="content">
+  <%= render 'shared/flash', object: flash %>
+  <%= yield %>
+  </div>
+
+</div>
+
+<!-- Le javascript
+================================================== -->
+<!-- Placed at the end of the document so the pages load faster -->
+<%= javascript_include_tag 'application' %>
+</body>
+</html>
